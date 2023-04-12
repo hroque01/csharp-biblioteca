@@ -6,11 +6,19 @@ using System.Threading.Tasks;
 
 namespace csharp_biblioteca
 {
-    internal class Prestiti
+    internal class Prestito
     {
-        public Utenti Utenti { get; set; }
-        public Documenti Documenti { get; set; }
+        public Utenti Utente { get; set; }
+        public Documenti Documento { get; set; }
         public string dataInizio { get; set; }
         public string dataFine { get; set; }
+
+        public Prestito(Utenti utente, Documenti documento, string dataInizio, string dataFine)
+        {
+            Utente = utente;
+            Documento = documento;
+            this.dataInizio = dataInizio;
+            this.dataFine = dataFine;
+        }
     }
 }
