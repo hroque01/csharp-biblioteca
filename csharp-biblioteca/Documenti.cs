@@ -10,16 +10,16 @@ namespace csharp_biblioteca
     internal class Documenti
     {
         public string Codice { get; set; }
-        public string Title { get; set; }
+        public string Titolo { get; set; }
         public string Anno { get; set; }
         public string Settore { get; set; }
         public string Scaffale { get; set; }
         public string Autore { get; set; }
 
-        public Documenti( string codice, string title, string anno, string settore, string scaffale, string autore)
+        public Documenti( string codice, string titolo, string anno, string settore, string scaffale, string autore)
         {
             Codice = codice;
-            Title = title;
+            Titolo = titolo;
             Anno = anno;
             Settore = settore;
             Scaffale = scaffale;
@@ -27,7 +27,7 @@ namespace csharp_biblioteca
         }
     }
 
-    class Dvd : Documenti
+    internal class Dvd : Documenti
     {
         public string Durata { get; set; }
 
@@ -37,7 +37,7 @@ namespace csharp_biblioteca
         }
     }
     
-    class Libri : Documenti
+    internal class Libri : Documenti
     {
         public string Pagine { get; set; }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,7 +13,7 @@ namespace csharp_biblioteca
         private List<Utenti> Utenti = new List<Utenti>();
         private List<Prestiti> Prestiti = new List<Prestiti>();
 
-        public Utenti createUser()
+        public Utenti CreateUser()
         {
             Console.Write("Registrati!");
 
@@ -49,54 +50,64 @@ namespace csharp_biblioteca
             Utenti.Add(nuovoUtente);
 
             return nuovoUtente;
-
         }
 
-        public void createDocument()
+        public void CreateDocument()
         {
-            Console.WriteLine("Inserisci i dati del nuovo documento:");
+            Console.WriteLine();
+            Console.WriteLine("Vuoi aggiungere un DVD o un libro nuovo?");
+            string risposta = Console.ReadLine();
+            if (risposta == "si") {
+                Console.Write("Codice: ");
+                string codice = Console.ReadLine();
 
-            Console.Write("Codice: ");
-            string codice = Console.ReadLine();
+                Console.Write("Titolo: ");
+                string titolo = Console.ReadLine();
 
-            Console.Write("Titolo: ");
-            string titolo = Console.ReadLine();
+                Console.Write("Anno di pubblicazione: ");
+                string anno = Console.ReadLine();
 
-            Console.Write("Anno di pubblicazione: ");
-            string anno = Console.ReadLine();
+                Console.Write("Settore: ");
+                string settore = Console.ReadLine();
 
-            Console.Write("Settore: ");
-            string settore = Console.ReadLine();
+                Console.Write("Scaffale: ");
+                string scaffale = Console.ReadLine();
 
-            Console.Write("Scaffale: ");
-            string scaffale = Console.ReadLine();
+                Console.Write("Autore: ");
+                string autore = Console.ReadLine();
 
-            Console.Write("Autore: ");
-            string autore = Console.ReadLine();
+                Console.Write("Tipo di documento (dvd/libro): ");
+                string tipo = Console.ReadLine();
 
-            Console.Write("Tipo di documento (dvd/libro): ");
-            string tipo = Console.ReadLine();
-
-            if (tipo == "dvd")
-            {
-                Console.Write("Durata: ");
-                string durata = Console.ReadLine();
-                Documenti nuovoDocumento = new Dvd(codice, titolo, anno, settore, scaffale, autore, durata);
-                Documenti.Add(nuovoDocumento);
+                if (tipo == "dvd")
+                {
+                    Console.Write("Durata: ");
+                    string durata = Console.ReadLine();
+                    Documenti nuovoDocumento = new Dvd(codice, titolo, anno, settore, scaffale, autore, durata);
+                    Documenti.Add(nuovoDocumento);
+                }
+                else if (tipo == "libro")
+                {
+                    Console.Write("Numero di pagine: ");
+                    string pagine = Console.ReadLine();
+                    Documenti nuovoDocumento = new Libri(codice, titolo, anno, settore, scaffale, autore, pagine);
+                    Documenti.Add(nuovoDocumento);
+                }
             }
-            else if (tipo == "libro")
+             else
             {
-                Console.Write("Numero di pagine: ");
-                string pagine = Console.ReadLine();
-                Documenti nuovoDocumento = new Libri(codice, titolo, anno, settore, scaffale, autore, pagine);
-                Documenti.Add(nuovoDocumento);
+                Console.WriteLine("Grazie Arrivederci!");
             }
+
+            
         }
 
-        public void AggiungiPrestito(Utenti utente, Documenti documento, string dataInizio, string dataFine)
+        public void AddPrestito(Utenti utente, Documenti documento, string dataInizio, string dataFine)
         {
             Prestiti nuovoPrestito = new Prestiti { Utenti = utente, Documenti = documento, dataInizio = dataInizio, dataFine = dataFine };
             Prestiti.Add(nuovoPrestito);
         }
+
+
     }
 }
