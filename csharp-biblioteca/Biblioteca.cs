@@ -46,6 +46,8 @@ namespace csharp_biblioteca
                     $"Telefono: {nuovoUtente.Telefono}"
                     );
 
+            Utenti.Add(nuovoUtente);
+
             return nuovoUtente;
 
         }
