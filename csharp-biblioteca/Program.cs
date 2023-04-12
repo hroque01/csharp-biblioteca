@@ -6,7 +6,6 @@ namespace csharp_biblioteca
     {
         static void Main(string[] args)
         {
-            //public Utenti(string cognome, string nome, string email, string utentePassword, string telefono)
 
             Console.Write("Registrati!");
 
