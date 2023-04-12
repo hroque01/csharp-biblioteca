@@ -16,21 +16,14 @@ namespace csharp_biblioteca
         public string Scaffale { get; set; }
         public string Autore { get; set; }
 
-        public Documenti( string title, string anno, string settore, string scaffale, string autore)
+        public Documenti( string codice, string title, string anno, string settore, string scaffale, string autore)
         {
-            Codice = GetNumRam();
+            Codice = codice;
             Title = title;
             Anno = anno;
             Settore = settore;
             Scaffale = scaffale;
             Autore = autore;
-        }
-
-        //Metodo per generare numeri random
-        public string GetNumRam()
-        {
-            Random rnd = new Random();
-            return rnd.Next(50, 999).ToString();
         }
     }
 
@@ -38,7 +31,7 @@ namespace csharp_biblioteca
     {
         public string Durata { get; set; }
 
-        public Dvd(string titolo, string anno, string settore, string scaffale, string autore, string durata) : base(titolo, anno, settore, scaffale, autore)
+        public Dvd(string codice, string titolo, string anno, string settore, string scaffale, string autore, string durata) : base(codice, titolo, anno, settore, scaffale, autore)
         {
             Durata = durata;
         }
@@ -48,7 +41,7 @@ namespace csharp_biblioteca
     {
         public string Pagine { get; set; }
 
-        public Libri(string titolo, string anno, string settore, string scaffale, string autore, string pagine) : base(titolo, anno, settore, scaffale, autore)
+        public Libri(string codice, string titolo, string anno, string settore, string scaffale, string autore, string pagine) : base(codice, titolo, anno, settore, scaffale, autore)
         {
             Pagine = pagine;
         }
